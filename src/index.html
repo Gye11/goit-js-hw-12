@@ -1,23 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Image Search</title>
+
+    <!-- Vite template CSS -->
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
+
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    <!-- HEADER -->
+    <load src="./partials/header.html" />
 
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <!-- SEARCH FORM (FIGMA) -->
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <!-- GALLERY -->
+      <div class="gallery"></div>
+
+      <!-- LOAD MORE -->
+      <button class="load-more is-hidden">Load more</button>
+
+      <!-- LOADING TEXT -->
+      <p class="loading-text is-hidden">Loading images, please wait...</p>
     </main>
 
+    <!-- FOOTER -->
     <load src="./partials/footer.html" />
 
+    <!-- MAIN JS -->
     <script type="module" src="./main.js"></script>
   </body>
 </html>
