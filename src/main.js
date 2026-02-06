@@ -20,6 +20,7 @@ function onSearch(e) {
   e.preventDefault();
 
   query = e.target.elements[0].value.trim();
+
   if (!query) {
     iziToast.warning({
       message: 'Please enter a search query!',
@@ -46,7 +47,7 @@ function onSearch(e) {
       renderImages(data.hits);
       lightbox.refresh();
 
-      if (data.totalHits > 20) {
+      if (data.totalHits > gallery.children.length) {
         loadMoreBtn.classList.remove('is-hidden');
       }
     })
@@ -90,12 +91,16 @@ function renderImages(images) {
     .map(
       img => `
       <a href="${img.largeImageURL}" class="photo-card">
-        <img src="${img.webformatURL}" alt="${img.tags}" loading="lazy" />
+        <img
+          src="${img.webformatURL}"
+          alt="${img.tags}"
+          loading="lazy"
+        />
         <div class="info">
-          <p><b>Likes</b> ${img.likes}</p>
-          <p><b>Views</b> ${img.views}</p>
-          <p><b>Comments</b> ${img.comments}</p>
-          <p><b>Downloads</b> ${img.downloads}</p>
+          <p><b>Likes:</b> ${img.likes}</p>
+          <p><b>Views:</b> ${img.views}</p>
+          <p><b>Comments:</b> ${img.comments}</p>
+          <p><b>Downloads:</b> ${img.downloads}</p>
         </div>
       </a>
     `
